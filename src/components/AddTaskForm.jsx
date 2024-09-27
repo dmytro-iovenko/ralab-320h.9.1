@@ -1,8 +1,10 @@
+import AddTaskInput from "./AddTaskForm/AddTaskInput";
+
 export default function AddTaskForm() {
   return (
     <section>
-      <input type="text" placeholder="Add task" />
-      <button>Add</button>
+      <AddTaskInput />
+      <AddButton />
     </section>
   );
 }
