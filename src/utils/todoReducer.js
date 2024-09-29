@@ -1,11 +1,13 @@
 export default function reducer(state, { type, payload }) {
   console.log(type, state);
   switch (type) {
-    case "completed":
+    case "complete":
       return state.map((task) => {
         task.id === payload.id && (task.completed = payload.completed);
         return task;
       });
+    case "delete":
+      return state.filter((task) => task.id !== payload.id);
   }
   return state;
 }
