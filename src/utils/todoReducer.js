@@ -31,6 +31,7 @@ export default function reducer(state, { type, payload }) {
         return task;
       });
     case "add":
+      if (payload.title.trim() === "") return state;
       const newTask = {
         id: nextId(state),
         userId: 1,
