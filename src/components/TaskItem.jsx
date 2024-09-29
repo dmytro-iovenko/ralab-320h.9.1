@@ -1,13 +1,18 @@
+import { useRef } from "react";
+
 function EditTask({ task, dispatch }) {
+  let refTaskTitle = useRef(task.title);
   return (
     <>
-      <input type="text" value={task.title} />
-      <button>Save</button>
+      <input type="text" defaultValue={task.title} ref={refTaskTitle} />
+      <button onClick={() => dispatch({ type: "save", payload: { id: task.id, title: refTaskTitle.current.value } })}>
+        Save
+      </button>
     </>
   );
 }
 
-function SaveTask({ task, dispatch }) {
+function NormalTask({ task, dispatch }) {
   return (
     <>
       <label htmlFor={task.id}>{task.title}</label>
@@ -26,7 +31,7 @@ export default function TaskItem({ task, dispatch }) {
         checked={task.completed}
         onChange={() => dispatch({ type: "complete", payload: { id: task.id, completed: !task.completed } })}
       />
-      {task.edit ? <EditTask task={task} dispatch={dispatch} /> : <SaveTask task={task} dispatch={dispatch} />}
+      {task.edit ? <EditTask task={task} dispatch={dispatch} /> : <NormalTask task={task} dispatch={dispatch} />}
     </li>
   );
 }

@@ -13,6 +13,14 @@ export default function reducer(state, { type, payload }) {
         task.id === payload.id && (task.edit = true);
         return task;
       });
+    case "save":
+      return state.map((task) => {
+        if (task.id === payload.id) {
+          task.title = payload.title;
+          task.edit = false;
+        }
+        return task;
+      });
   }
   return state;
 }
