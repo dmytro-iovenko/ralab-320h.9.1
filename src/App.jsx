@@ -10,7 +10,7 @@ function App() {
     <>
       <h2>Create Todo List</h2>
       <AddTaskForm />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} dispatch={dispatch}/>
     </>
   );
 }
