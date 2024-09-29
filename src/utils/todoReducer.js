@@ -23,6 +23,7 @@ export default function reducer(state, { type, payload }) {
         return task;
       });
     case "save":
+      if (payload.title.trim() === "") return state;
       return state.map((task) => {
         if (task.id === payload.id) {
           task.title = payload.title;
