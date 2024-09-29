@@ -1,3 +1,12 @@
+function nextId(tasks) {
+  return (
+    tasks.reduce((maxId, task) => {
+      console.log(maxId, task.id);
+      return Math.max(maxId, task.id);
+    }, 1) + 1
+  );
+}
+
 export default function reducer(state, { type, payload }) {
   console.log(type, state);
   switch (type) {
@@ -17,10 +26,19 @@ export default function reducer(state, { type, payload }) {
       return state.map((task) => {
         if (task.id === payload.id) {
           task.title = payload.title;
-          task.edit = false;
+          delete task.edit;
         }
         return task;
       });
+    case "add":
+      const newTask = {
+        id: nextId(state),
+        userId: 1,
+        title: payload.title,
+        completed: false,
+      };
+      console.log(JSON.stringify(newTask));
+      return [newTask, ...state];
   }
   return state;
 }

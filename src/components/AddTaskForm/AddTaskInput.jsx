@@ -1,3 +1,7 @@
-export default function AddTaskInput() {
-  return <input type="text" placeholder="Add task" />;
+import { forwardRef } from "react";
+
+function AddTaskInput(props, ref) {
+  return <input type="text" placeholder="Add task" {...props} ref={ref} />;
 }
+
+export default forwardRef(AddTaskInput);

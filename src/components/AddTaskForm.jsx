@@ -1,11 +1,13 @@
+import { useRef } from "react";
 import AddButton from "./AddTaskForm/AddButton";
 import AddTaskInput from "./AddTaskForm/AddTaskInput";
 
-export default function AddTaskForm() {
+export default function AddTaskForm({ dispatch }) {
+  let newTaskRef = useRef(null);
   return (
     <section>
-      <AddTaskInput />
-      <AddButton />
+      <AddTaskInput ref={newTaskRef} />
+      <AddButton taskRef={newTaskRef} dispatch={dispatch} />
     </section>
   );
 }

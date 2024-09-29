@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <h2>Create Todo List</h2>
-      <AddTaskForm />
-      <TaskList tasks={tasks} dispatch={dispatch}/>
+      <AddTaskForm dispatch={dispatch} />
+      <TaskList tasks={tasks} dispatch={dispatch} />
     </>
   );
 }
