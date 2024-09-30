@@ -34,15 +34,19 @@ export default function reducer(state, { type, payload }) {
         return task;
       });
     case "add":
-      if (payload.title.trim() === "") return state;
-      const newTask = {
-        id: nextId(state),
-        userId: 1,
-        title: payload.title,
-        completed: false,
-      };
-      console.log(JSON.stringify(newTask));
-      return [newTask, ...state];
-  }
+      // if (payload.title.trim() === "") return state;
+      // const newTask = {
+      //   id: nextId(state),
+      //   userId: 1,
+      //   title: payload.title,
+      //   completed: false,
+      // };
+      // console.log(JSON.stringify(newTask));
+      // return [newTask, ...state];
+
+      // fix(align) id for new task
+      payload.id = nextId(state); 
+      return [payload, ...state];
+    }
   return state;
 }
