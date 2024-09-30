@@ -1,7 +1,8 @@
 import { forwardRef } from "react";
+import { TextField } from "@mui/material";
 
 function AddTaskInput(props, ref) {
-  return <input type="text" placeholder="Add task" {...props} ref={ref} />;
+  return <TextField variant="outlined" placeholder="Add task" {...props} inputRef={ref} />;
 }
 
 export default forwardRef(AddTaskInput);
