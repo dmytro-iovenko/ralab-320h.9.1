@@ -1,7 +1,7 @@
 function nextId(tasks) {
   return (
     tasks.reduce((maxId, task) => {
-      console.log(maxId, task.id);
+      // console.log(maxId, task.id);
       return Math.max(maxId, task.id);
     }, 1) + 1
   );
