@@ -2,7 +2,7 @@ import TaskItem from "./TaskItem";
 import { List } from "@mui/material";
 
 export default function TaskList({ tasks, dispatch }) {
-  console.log(tasks);
+  // console.log(tasks);
   return (
     <List>
       {tasks.map((task) => (

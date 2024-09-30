@@ -16,7 +16,7 @@ function App() {
     (async function () {
       try {
         const todos = await TodosAPI.getTodos();
-        console.log("Initial load", todos);
+        isMounted && console.log("Initial load", todos);
         isMounted && dispatch({ type: "init", payload: todos });
       } catch (error) {
         console.error("Error load todos:", error);
