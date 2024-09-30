@@ -10,6 +10,8 @@ function nextId(tasks) {
 export default function reducer(state, { type, payload }) {
   console.log(type, state);
   switch (type) {
+    case "init":
+      return payload
     case "complete":
       return state.map((task) => {
         task.id === payload.id && (task.completed = payload.completed);
